@@ -1,0 +1,56 @@
+<nav class="nav" role="navigation">
+  <img class="logo" src="/img/marvel-logo.svg" alt="">
+  <hr class="separator">
+  <menu class="menu">
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/characters">Characters</a>
+      </li>
+    </ul>
+  </menu>
+</nav>
+
+<style>
+  .logo{
+    width: 100px;
+    height: auto;
+  }
+  
+  .nav{
+    position: fixed;
+    padding: 10px;
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+    width: 120px;
+    background-color: var(--black);
+    height: 100%;
+  }
+
+  .menu{
+    padding: 0;
+  }
+
+  .menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu li {
+    padding: 8px 0;
+  }
+
+  .menu li a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .menu li a:hover{
+    text-decoration: underline;
+  }
+</style>
