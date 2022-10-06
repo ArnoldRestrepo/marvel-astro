@@ -3,28 +3,72 @@ import Layout from '../layouts/Layout.astro';
 import { getCharacters } from '../lib/getCharacters';
 import type { Character } from './characters.types';
 
-const data = await getCharacters(200);
+const data = await getCharacters(100);
 ---
 
 <Layout title="Marvel Characters">
   <main class="main">
     <h2>Marvel Characters</h2>
-    <!-- {data.results.map((character: Character) => {
+    <section class="grid">
+      {data.results.map((character: Character) => {  
       return (
-        <div>
-          <h3>{character.name}</h3>
-          <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt={character.name}>
-        </div>
-      )
-    }
-    )} -->
+        <article class="grid-item">
+          <div class="grid-item-header">
+            <img class="grid-item-image" src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt={character.name}>
+          </div>
+          <div class="grid-item-content">
+            <h3 class="grid-item-title">{character.name}</h3>
+            <p class="grid-item-description">{character.description}</p>
+          </div>
+        </article>
+      )})}
+    </section>
   </main>
 </Layout>
 
 <style>
   .main{
-    width: calc(100% - 130px);
-    margin-left: 130px;
+    width: calc(100% - 160px);
+    margin-left: 110px;
+    padding: 0 2rem;
+  }
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: minmax(60px, auto);
+    gap: 2rem;
+  }
+
+  .grid-item{
+    box-sizing: border-box;
+    background: var(--red);
+    overflow: hidden;
+  }
+
+  .grid-item-title{
+    color: white;
+    margin: 0;
+  }
+
+  .grid-item-header{
+    overflow: hidden;
+  }
+
+  .grid-item-content{
+    padding: 10px;
+  }
+
+  .grid-item-description{
+  }
+
+  .grid-item-image{
+    width: 100%;
+    height: auto;
+    transition: transform 200ms;
+  }
+
+  .grid-item-image:hover{
+    transform: scale(1.2)
   }
 </style>
 
