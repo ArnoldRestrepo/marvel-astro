@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Welcome to Marvel Astro Page">
-	<main>
+	<main class="main">
 		<h1>Welcome to <span class="text-gradient">Marvel Universe</span></h1>
 		<p class="instructions">
 			This awesome page was build with Atro the future of the MPA, faster and easily
@@ -13,9 +13,11 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
 	main {
-		margin: auto;
+		margin: 0 auto;
 		padding: 1.5rem;
+		width: calc(100% - 160px);
 		max-width: 70ch;
+    margin-left: 110px;
 	}
 	h1 {
 		font-size: 3rem;
